@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .form-container {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background-color: #f0f2f5;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF8C00; 
+            padding: 8px;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        .form-container h1, .form-container p {
+            text-align: center;
+        }
+        .form-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .form-container p {
+            margin-bottom: 40px;
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        .form-container label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container a {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        .form-container button {
+            padding: 10px;
+            width: 100%;
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        .form-container button:hover {
+            background-color: #e07c00;
+        }
+        .illustration {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .illustration img {
+            width: 100%;
+            height: 100%;
+        }
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="logo">
+                <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/11a4a6c74511072ff24961e111cd65cf" alt="Eventify" style="margin-right: 12px;">
+                Eventify
+            </div>
+            
+            <h1>Sign Up</h1>
+            <p>Create your account by filling in the details below.</p>
+            <form id="signUpForm" method="POST" action="signup.php" onsubmit="return validateForm()">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <div class="error" id="nameError"></div>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div class="error" id="emailError"></div>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="error" id="passwordError"></div>
+                
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                <div class="error" id="confirmPasswordError"></div>
+
+                <button type="submit">SIGN UP</button>
+            </form>
+            <a href="login.html">Already have an account? Log in</a>
+        </div>
+        <div class="illustration">
+            <img src="https://snack-code-uploads.s3.us-west-1.amazonaws.com/~asset/9d113e1d105723cae21a609d57faabcb" alt="Illustration">
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            
+            // Clear previous error messages
+            document.querySelectorAll('.error').forEach(function(error) {
+                error.textContent = '';
+            });
+            
+            // Validate Full Name (letters and spaces only)
+            const name = document.getElementById('name').value;
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                document.getElementById('nameError').textContent = 'Full Name can only contain letters and spaces.';
+                isValid = false;
+            }
+
+            // Validate Email (valid email format)
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate Password (minimum 8 characters, 1 number, 1 uppercase)
+            const password = document.getElementById('password').value;
+            const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!passwordPattern.test(password)) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters, contain at least one number and one uppercase letter.';
+                isValid = false;
+            }
+
+            // Validate Confirm Password (match password)
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (confirmPassword !== password) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

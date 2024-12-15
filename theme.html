@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #FF8C00;
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h4 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .event-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .event-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .event-details {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+        .event-details img {
+            width: 300px;
+            height: 300px;
+            margin-right: 20px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .event-details label {
+            font-size: 1.2rem;
+            font-weight: medium;
+            color: #333;
+        }
+        button {
+            background-color: #FF8C00;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            width: 60%;
+            margin-left: 285px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #e67e00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Select Event</h1>
+    </header>
+    <div class="container">
+        <h4>Choose Event of your Choice</h4>
+        <form action="pricing.html" method="get">
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://media.self.com/photos/5e70f72443731c000882cfe7/4:3/w_2560%2Cc_limit/GettyImages-125112134.jpg" alt="Music Concert">
+                    <label for="event1">Music Concert</label>
+                </div>
+                <input type="radio" id="event1" name="event" value="Music Concert" required>
+            </div>
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDTwlWzjuIk5RU1qbrgwnvGZSHumYM2AVDRg&s" alt="Art Exhibition">
+                    <label for="event2">Art Exhibition</label>
+                </div>
+                <input type="radio" id="event2" name="event" value="Art Exhibition">
+            </div>
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2018/09/Festival-in-Chiang-Mai-Thailand-1200x853.jpg" alt="Cultural Event">
+                    <label for="event3">Cultural Event</label>
+                </div>
+                <input type="radio" id="event3" name="event" value="Cultural Event">
+            </div>
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://images.stockcake.com/public/1/a/a/1aa7434f-b8ae-4c34-bf14-ac9655fb32b7_large/sunset-wedding-setup-stockcake.jpg" alt="Wedding Ceremony">
+                    <label for="event4">Wedding Ceremony</label>
+                </div>
+                <input type="radio" id="event4" name="event" value="Wedding Ceremony">
+            </div>
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/birthday-combo/z/e/h/birthday-party-decorations-kit-hbd-style-16-party-spritz-original-imags9wrwj2dmtgf.jpeg?q=90&crop=false" alt="Birthday">
+                    <label for="event5">Birthday</label>
+                </div>
+                <input type="radio" id="event5" name="event" value="Birthday">
+            </div>
+            <div class="event-item">
+                <div class="event-details">
+                    <img src="https://i.pinimg.com/550x/fe/0a/ce/fe0ace213b520d16fc490774e1f5d3b0.jpg" alt="Outdoor Picnic">
+                    <label for="event6">Outdoor Picnic</label>
+                </div>
+                <input type="radio" id="event6" name="event" value="Outdoor Picnic">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
